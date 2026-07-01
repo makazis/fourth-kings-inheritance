@@ -50,5 +50,5 @@ func _on_timer_timeout() -> void:
 	start_the_turn()
 
 func _on_combat_ends():
-	print("Combat ended?")
-	queue_free()
+	pass
+	#usually end of combat stuff would go here but for now we just send it back to the main screen. 

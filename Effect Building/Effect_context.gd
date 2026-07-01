@@ -26,6 +26,8 @@ func _process(delta: float) -> void:
 var saved_entity_data={}
 
 func check_if_combat_ends():
+	if len(all_entities)==0:
+		return
 	var friendlies=0
 	var enemies=0
 	for entity in all_entities:
@@ -40,3 +42,4 @@ func check_if_combat_ends():
 			entity.queue_free()
 		all_entities.clear()
 		combat_ends.emit()
+		#print("CE EMITTED")

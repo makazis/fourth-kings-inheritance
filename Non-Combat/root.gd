@@ -3,7 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	EffectContext.combat_ends.connect(_on_combat_ends)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -12,6 +12,9 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	print("preparing combat")
-	get_tree().change_scene_to_file("res://Combat/root.tscn")
+	$Camera2D.position.x+=2560.0
 	pass # Replace with function body.
+
+func _on_combat_ends():
+	print("Combat Ended")
+	$Camera2D.position.x-=2560.0
