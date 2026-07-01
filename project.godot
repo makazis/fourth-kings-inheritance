@@ -24,8 +24,8 @@ CombatData="*uid://b5tq7vruloerc"
 
 [display]
 
-window/size/viewport_width=2560
-window/size/viewport_height=1260
+window/size/viewport_width=1280
+window/size/viewport_height=630
 window/stretch/mode="viewport"
 
 [editor_plugins]
