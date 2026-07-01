@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Gu_Move" format=3 uid="uid://cccfo5swo1inr"]
+
+[ext_resource type="Resource" uid="uid://x53gpr7x7m0b" path="res://Card Data/Gu/Martial Moves/NotAGu.tres" id="1_85ok1"]
+[ext_resource type="Script" uid="uid://c7xhxk6bgq13p" path="res://Card Data/Gu/gu_move.gd" id="2_0lmxg"]
+[ext_resource type="Script" uid="uid://drt5po2eht3pn" path="res://Effect Building/Combat/Deal Damage Static.gd" id="2_qbrg3"]
+[ext_resource type="Script" uid="uid://co0nojkhbeoum" path="res://Effect Building/Target_Handling/targetCriteria.gd" id="3_0r77m"]
+
+[sub_resource type="Resource" id="Resource_vdhks"]
+script = ExtResource("2_qbrg3")
+target = "Target"
+damage = 6
+metadata/_custom_type_script = "uid://drt5po2eht3pn"
+
+[sub_resource type="Resource" id="Resource_qbrg3"]
+script = ExtResource("3_0r77m")
+metadata/_custom_type_script = "uid://co0nojkhbeoum"
+
+[resource]
+script = ExtResource("2_0lmxg")
+parent_gu = ExtResource("1_85ok1")
+pe_cost = 0
+card_name = "Strike"
+card_description = "Deal 6 damage"
+effect = SubResource("Resource_vdhks")
+target_criteria = SubResource("Resource_qbrg3")
+front_layout_name = &"Move"
+metadata/_custom_type_script = "uid://cdrti7htfmhk5"

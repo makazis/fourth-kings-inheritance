@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://wtjqtvkrv78y"]
+
+[ext_resource type="Script" uid="uid://5brbuxyb7kh" path="res://Combat/root.gd" id="1_cgq65"]
+[ext_resource type="PackedScene" uid="uid://ceggrswxy64mv" path="res://Creature Data/Creature.tscn" id="2_jsov7"]
+[ext_resource type="Texture2D" uid="uid://cpo2lhw0waoco" path="res://Creature Data/Images/40a414755ddd26aefce0664f9410948a.jpg" id="3_axbwd"]
+[ext_resource type="Script" uid="uid://cs1e2lwpafbvf" path="res://Creature Data/creature_layout.gd" id="3_lferd"]
+[ext_resource type="Resource" uid="uid://gkdxhovi7rfx" path="res://Creature Data/Enemies/Ethereal Dog.tres" id="5_5dw8y"]
+[ext_resource type="Script" uid="uid://bkxlv2512vggc" path="res://Combat/deck.gd" id="9_71fpb"]
+[ext_resource type="Script" uid="uid://bisyk4bowdvsf" path="res://addons/simple_cards/deck/manager/card_deck_manager.gd" id="10_kffyy"]
+[ext_resource type="Script" uid="uid://c8315v58tr66b" path="res://addons/simple_cards/card/card_resource/card_resource.gd" id="11_g2ija"]
+[ext_resource type="Resource" uid="uid://cccfo5swo1inr" path="res://Card Data/Gu/Martial Moves/strike.tres" id="12_skhyk"]
+[ext_resource type="Resource" uid="uid://d4nhhtayminlq" path="res://Card Data/Gu/Martial Moves/defend.tres" id="13_jlb0g"]
+[ext_resource type="Script" uid="uid://lhb5ry3o8icy" path="res://addons/simple_cards/deck/card_deck.gd" id="14_88goi"]
+[ext_resource type="Script" uid="uid://cqlyvmgm30540" path="res://Combat/hand.gd" id="15_u8awk"]
+[ext_resource type="Script" uid="uid://cgtxv1fnflwfu" path="res://addons/simple_cards/shape/premade_shapes/arc_shape.gd" id="16_k8i5p"]
+[ext_resource type="Script" uid="uid://d2l8uaoel5whd" path="res://addons/simple_cards/containers/pile/card_pile.gd" id="17_b47kv"]
+[ext_resource type="Texture2D" uid="uid://crd33hf2akbos" path="res://Assets/Screenshot 2026-06-17 162811.png" id="18_vys3o"]
+[ext_resource type="FontFile" uid="uid://ds1saal6ugufw" path="res://Assets/Excalifont-Regular.woff2" id="19_ajjgt"]
+[ext_resource type="Texture2D" uid="uid://b5hnow1oi63sd" path="res://Assets/EndTurnButton.png" id="20_5y3d7"]
+[ext_resource type="BitMap" uid="uid://7k554wiexp0c" path="res://Assets/EndTurnButtonBitmap.bmp" id="21_i8h5o"]
+
+[sub_resource type="Resource" id="Resource_axbwd"]
+resource_local_to_scene = true
+script = ExtResource("3_lferd")
+name = "Fang Yuan"
+hp = 70
+image = ExtResource("3_axbwd")
+team = "Friendly"
+metadata/_custom_type_script = "uid://cs1e2lwpafbvf"
+
+[sub_resource type="Resource" id="Resource_r3r3k"]
+script = ExtResource("14_88goi")
+deck_name = &"TestDeck"
+cards = Array[ExtResource("11_g2ija")]([ExtResource("12_skhyk"), ExtResource("12_skhyk"), ExtResource("12_skhyk"), ExtResource("12_skhyk"), ExtResource("12_skhyk"), ExtResource("13_jlb0g"), ExtResource("13_jlb0g"), ExtResource("13_jlb0g"), ExtResource("13_jlb0g"), ExtResource("13_jlb0g")])
+metadata/_custom_type_script = "uid://lhb5ry3o8icy"
+
+[sub_resource type="Resource" id="Resource_gd4vy"]
+script = ExtResource("16_k8i5p")
+arc_radius = 12000.0
+arc_angle = 30.0
+card_spacing = 170.0
+metadata/_custom_type_script = "uid://cgtxv1fnflwfu"
+
+[sub_resource type="LabelSettings" id="LabelSettings_r3r3k"]
+font = ExtResource("19_ajjgt")
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_blcw0"]
+resource_local_to_scene = true
+font = ExtResource("19_ajjgt")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_sq7yr"]
+resource_local_to_scene = true
+font = ExtResource("19_ajjgt")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_50g4q"]
+resource_local_to_scene = true
+font = ExtResource("19_ajjgt")
+font_size = 40
+
+[node name="Root" type="Node2D" unique_id=1328499140]
+script = ExtResource("1_cgq65")
+
+[node name="Fang Yuan" parent="." unique_id=1252677390 instance=ExtResource("2_jsov7")]
+position = Vector2(90, 189)
+scale = Vector2(1.5, 1.5)
+data = SubResource("Resource_axbwd")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1156324454]
+anchor_mode = 0
+
+[node name="Doggo" parent="." unique_id=1793231927 instance=ExtResource("2_jsov7")]
+position = Vector2(2098, 254)
+scale = Vector2(1.5, 1.5)
+data = ExtResource("5_5dw8y")
+
+[node name="Deck" type="Panel" parent="." unique_id=1917143974]
+offset_left = 2599.0
+offset_top = 1270.0
+offset_right = 2639.0
+offset_bottom = 1310.0
+script = ExtResource("9_71fpb")
+face_up = true
+metadata/_custom_type_script = "uid://d2l8uaoel5whd"
+
+[node name="CardDeckManager" type="Node" parent="Deck" unique_id=134106264 node_paths=PackedStringArray("starting_pile")]
+script = ExtResource("10_kffyy")
+deck = SubResource("Resource_r3r3k")
+starting_pile = NodePath("..")
+auto_setup = true
+metadata/_custom_type_script = "uid://bisyk4bowdvsf"
+
+[node name="Hand" type="Panel" parent="." unique_id=219155563]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 906.0
+offset_top = 952.0
+offset_right = 946.0
+offset_bottom = 992.0
+script = ExtResource("15_u8awk")
+enable_reordering = false
+shape = SubResource("Resource_gd4vy")
+max_cards = 6
+metadata/_custom_type_script = "uid://bbi8i6vef3f6y"
+
+[node name="DiscardPile" type="Panel" parent="." unique_id=180910201]
+offset_left = 2668.0
+offset_top = 1289.0
+offset_right = 2708.0
+offset_bottom = 1329.0
+script = ExtResource("17_b47kv")
+metadata/_custom_type_script = "uid://d2l8uaoel5whd"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2062366301]
+z_index = -999
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 2556.0
+offset_bottom = 1277.0
+mouse_filter = 2
+color = Color(0.14767182, 0.14767179, 0.14767179, 1)
+
+[node name="Energy" type="Sprite2D" parent="." unique_id=1178177614]
+position = Vector2(2299.0002, 887)
+scale = Vector2(0.7827003, 0.77898544)
+texture = ExtResource("18_vys3o")
+
+[node name="Conc" type="Label" parent="Energy" unique_id=447967751]
+offset_left = -90.71192
+offset_top = 8.98605
+offset_right = -50.71192
+offset_bottom = 91.98605
+text = "/"
+label_settings = SubResource("LabelSettings_r3r3k")
+
+[node name="MaxConcentration" type="Label" parent="Energy/Conc" unique_id=484301506]
+layout_mode = 0
+offset_left = 25.55249
+offset_top = 24.390747
+offset_right = 94.54443
+offset_bottom = 88.39075
+text = "3"
+label_settings = SubResource("LabelSettings_blcw0")
+
+[node name="Concentration" type="Label" parent="Energy/Conc" unique_id=1160746985]
+layout_mode = 0
+offset_left = -54.93799
+offset_top = -5.1348877
+offset_right = 14.053955
+offset_bottom = 58.865112
+text = "3"
+label_settings = SubResource("LabelSettings_blcw0")
+horizontal_alignment = 2
+
+[node name="Essence" type="Label" parent="Energy" unique_id=2109257457]
+offset_left = 63.881096
+offset_top = -77.02327
+offset_right = 103.881096
+offset_bottom = 5.9767303
+text = "/"
+label_settings = SubResource("LabelSettings_r3r3k")
+
+[node name="MaxConcentration" type="Label" parent="Energy/Essence" unique_id=364109030]
+layout_mode = 0
+offset_left = 17.88672
+offset_top = 28.241833
+offset_right = 123.92993
+offset_bottom = 92.24184
+text = "3"
+label_settings = SubResource("LabelSettings_sq7yr")
+
+[node name="Concentration" type="Label" parent="Energy/Essence" unique_id=1799220836]
+layout_mode = 0
+offset_left = -88.15621
+offset_top = -2.5674453
+offset_right = 13.843788
+offset_bottom = 61.432556
+text = "3"
+label_settings = SubResource("LabelSettings_50g4q")
+horizontal_alignment = 2
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=835085032]
+offset_left = 2281.9998
+offset_top = 915.00006
+offset_right = 2804.9998
+offset_bottom = 1117.0
+scale = Vector2(0.52779335, 0.5876445)
+texture_normal = ExtResource("20_5y3d7")
+texture_click_mask = ExtResource("21_i8h5o")
+
+[node name="Timer" type="Timer" parent="." unique_id=2113416048]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

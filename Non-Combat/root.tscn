@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dxhjs4qacx8ds"]
+
+[ext_resource type="Script" uid="uid://wnvlke0vo18j" path="res://Non-Combat/root.gd" id="1_igkdj"]
+[ext_resource type="FontFile" uid="uid://ds1saal6ugufw" path="res://Assets/Excalifont-Regular.woff2" id="2_hjd13"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font = ExtResource("2_hjd13")
+font_size = 32
+
+[node name="Root" type="Node2D" unique_id=1285266550]
+script = ExtResource("1_igkdj")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2069670562]
+
+[node name="Panel" type="Panel" parent="." unique_id=1805718938]
+offset_left = -1281.0
+offset_top = -630.0
+offset_right = 1281.0
+offset_bottom = -535.0
+
+[node name="Label" type="Label" parent="Panel" unique_id=1353319901]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 30.0
+offset_right = 326.0
+offset_bottom = 75.0
+text = "HP: 70/70"
+label_settings = SubResource("LabelSettings_g4v7s")
+
+[node name="Button" type="Button" parent="." unique_id=1197210625]
+offset_left = 952.0
+offset_top = -253.0
+offset_right = 1043.0
+offset_bottom = -222.0
+text = "Play Battle"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

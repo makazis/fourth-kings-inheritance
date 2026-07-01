@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Creature" format=3 uid="uid://d2vo5hoo86yrd"]
+
+[ext_resource type="Texture2D" uid="uid://cpo2lhw0waoco" path="res://Creature Data/Images/40a414755ddd26aefce0664f9410948a.jpg" id="1_bjue6"]
+[ext_resource type="Script" uid="uid://cs1e2lwpafbvf" path="res://Creature Data/creature_layout.gd" id="1_ep7wq"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_ep7wq")
+name = "Fang Yuan"
+hp = 70
+image = ExtResource("1_bjue6")
+team = "Friendly"
+metadata/_custom_type_script = "uid://cs1e2lwpafbvf"

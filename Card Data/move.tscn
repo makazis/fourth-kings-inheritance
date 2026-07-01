@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://csox1ytpbk8ct"]
+
+[ext_resource type="Script" uid="uid://b5umulev15wt4" path="res://Card Data/move.gd" id="1_epxnr"]
+[ext_resource type="Texture2D" uid="uid://ddaquesfnhgab" path="res://Assets/CardBase.png" id="2_epxnr"]
+[ext_resource type="FontFile" uid="uid://ds1saal6ugufw" path="res://Assets/Excalifont-Regular.woff2" id="3_45xvj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dbv13"]
+font = ExtResource("3_45xvj")
+font_size = 50
+
+[node name="CardLayout" type="SubViewportContainer" unique_id=841071507]
+texture_filter = 2
+offset_right = 80.0
+offset_bottom = 112.0
+script = ExtResource("1_epxnr")
+card_size = Vector2i(240, 336)
+metadata/is_layout = true
+metadata/layout_id = "Move"
+metadata/tags = ["playable"]
+metadata/_custom_type_script = "uid://dm115oleoggyt"
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=441960754]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(240, 336)
+render_target_update_mode = 4
+
+[node name="DefaultCardSprite" type="Sprite2D" parent="SubViewport" unique_id=373301019]
+position = Vector2(117.150475, 157)
+scale = Vector2(0.34942845, 0.2971761)
+texture = ExtResource("2_epxnr")
+
+[node name="Label4" type="Label" parent="SubViewport/DefaultCardSprite" unique_id=2066093246]
+offset_left = -335.26315
+offset_top = -360.0559
+offset_right = -160.30011
+offset_bottom = -158.05597
+text = "1"
+label_settings = SubResource("LabelSettings_dbv13")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="SubViewport/DefaultCardSprite" unique_id=128678850]
+offset_left = -278.0268
+offset_top = -20.190033
+offset_right = 297.1983
+offset_bottom = 84.12521
+text = "Strike"
+label_settings = SubResource("LabelSettings_dbv13")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="SubViewport/DefaultCardSprite" unique_id=42169634]
+offset_left = -215.06685
+offset_top = 107.68025
+offset_right = 166.98567
+offset_bottom = 439.68024
+scale = Vector2(1.2, 1.2)
+text = "first line
+second line
+deal 6 damage
+fourth line
+fifth line"
+label_settings = SubResource("LabelSettings_dbv13")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="SubViewport/DefaultCardSprite" unique_id=449251263]
+offset_left = -318.09222
+offset_top = -491.2912
+offset_right = -154.96869
+offset_bottom = -323.04077
+text = "0"
+label_settings = SubResource("LabelSettings_dbv13")
+horizontal_alignment = 1
+vertical_alignment = 1

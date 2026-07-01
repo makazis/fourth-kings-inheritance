@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://gblkcelf58m8"]
+
+[ext_resource type="Script" uid="uid://bxkw34pksdtpu" path="res://Creature Data/Other/attack_indicator.gd" id="1_35lex"]
+[ext_resource type="FontFile" uid="uid://ds1saal6ugufw" path="res://Assets/Excalifont-Regular.woff2" id="1_d1j6d"]
+[ext_resource type="Texture2D" uid="uid://b3j11g63dl0i1" path="res://Assets/Icons/ShieldIcon.png" id="2_5ub26"]
+[ext_resource type="Texture2D" uid="uid://cc7vfbmny1fky" path="res://Assets/Icons/SwordIcon.png" id="2_l2dqi"]
+[ext_resource type="Texture2D" uid="uid://dkorpchsjpt0a" path="res://Assets/Icons/CurseIcon.png" id="4_35lex"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ub26"]
+font = ExtResource("1_d1j6d")
+font_size = 30
+
+[node name="AttackIndicator" type="Node2D" unique_id=2080490692]
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_35lex")
+
+[node name="Attack" type="Node2D" parent="." unique_id=185874882]
+visible = false
+
+[node name="SwordIcon" type="Sprite2D" parent="Attack" unique_id=486180550]
+position = Vector2(36, 29.000002)
+rotation = -0.26193658
+scale = Vector2(0.12348178, 0.057014637)
+texture = ExtResource("2_l2dqi")
+
+[node name="Defend" type="Node2D" parent="." unique_id=1670649341]
+visible = false
+
+[node name="ShieldIcon" type="Sprite2D" parent="Defend" unique_id=426324164]
+position = Vector2(26, 22.000002)
+scale = Vector2(0.1065488, 0.11336516)
+texture = ExtResource("2_5ub26")
+
+[node name="Label" type="Label" parent="." unique_id=1355395043]
+offset_left = 49.0
+offset_top = 12.0
+offset_right = 125.0
+offset_bottom = 51.0
+text = "120B"
+label_settings = SubResource("LabelSettings_5ub26")
+
+[node name="NegStatus" type="Node2D" parent="." unique_id=1137749768]
+visible = false
+
+[node name="CurseIcon" type="Sprite2D" parent="NegStatus" unique_id=797306503]
+position = Vector2(22.000002, 21)
+scale = Vector2(0.09623016, 0.08975904)
+texture = ExtResource("4_35lex")

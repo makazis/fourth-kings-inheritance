@@ -1,0 +1,43 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Fourth Kings Inheritance"
+run/main_scene="uid://dxhjs4qacx8ds"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+CG="*uid://di2oxtaq5vhmh"
+EffectContext="*uid://brow7mf4lr7pr"
+CombatFunctions="*uid://4y1qf6rgo5l6"
+CombatData="*uid://b5tq7vruloerc"
+
+[display]
+
+window/size/viewport_width=2560
+window/size/viewport_height=1260
+window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/simple_cards/plugin.cfg")
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

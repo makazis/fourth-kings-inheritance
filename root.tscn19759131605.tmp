@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://wtjqtvkrv78y"]
+
+[ext_resource type="Script" uid="uid://5brbuxyb7kh" path="res://root.gd" id="1_huihk"]
+[ext_resource type="PackedScene" uid="uid://ceggrswxy64mv" path="res://Creature Data/Creature.tscn" id="1_pq8q7"]
+[ext_resource type="Resource" uid="uid://d2vo5hoo86yrd" path="res://Creature Data/Friends/cultivator.tres" id="2_vvh5c"]
+[ext_resource type="Texture2D" uid="uid://cpo2lhw0waoco" path="res://Creature Data/Images/40a414755ddd26aefce0664f9410948a.jpg" id="3_28aoi"]
+[ext_resource type="Resource" uid="uid://gkdxhovi7rfx" path="res://Creature Data/Enemies/Ethereal Dog.tres" id="4_jnlp7"]
+[ext_resource type="Texture2D" uid="uid://beu7n71jt8hy2" path="res://Creature Data/Images/07a6f91f16915cac49b0adf9a295085d.jpg" id="5_l8v81"]
+[ext_resource type="Script" uid="uid://d2l8uaoel5whd" path="res://addons/simple_cards/containers/pile/card_pile.gd" id="6_vyht1"]
+[ext_resource type="Script" uid="uid://bbi8i6vef3f6y" path="res://addons/simple_cards/containers/hand/card_hand.gd" id="7_bf3um"]
+[ext_resource type="Script" uid="uid://cgtxv1fnflwfu" path="res://addons/simple_cards/shape/premade_shapes/arc_shape.gd" id="9_tw3kd"]
+[ext_resource type="Script" uid="uid://bisyk4bowdvsf" path="res://addons/simple_cards/deck/manager/card_deck_manager.gd" id="10_eji0w"]
+[ext_resource type="Script" uid="uid://c8315v58tr66b" path="res://addons/simple_cards/card/card_resource/card_resource.gd" id="11_qwhpj"]
+[ext_resource type="Resource" uid="uid://cccfo5swo1inr" path="res://Card Data/Gu/Martial Moves/strike.tres" id="12_qt76e"]
+[ext_resource type="Script" uid="uid://lhb5ry3o8icy" path="res://addons/simple_cards/deck/card_deck.gd" id="13_sq7yr"]
+
+[sub_resource type="Resource" id="Resource_gd4vy"]
+script = ExtResource("9_tw3kd")
+metadata/_custom_type_script = "uid://cgtxv1fnflwfu"
+
+[sub_resource type="Resource" id="Resource_r3r3k"]
+script = ExtResource("13_sq7yr")
+deck_name = &"TestDeck"
+cards = Array[ExtResource("11_qwhpj")]([ExtResource("12_qt76e"), ExtResource("12_qt76e"), ExtResource("12_qt76e"), ExtResource("12_qt76e"), ExtResource("12_qt76e"), null, null, null, null, null])
+metadata/_custom_type_script = "uid://lhb5ry3o8icy"
+
+[node name="Root" type="Node2D" unique_id=1328499140]
+script = ExtResource("1_huihk")
+
+[node name="Creature" parent="." unique_id=1252677390 instance=ExtResource("1_pq8q7")]
+position = Vector2(15.000003, 50.999996)
+scale = Vector2(0.7, 0.7)
+data = ExtResource("2_vvh5c")
+
+[node name="40a414755Ddd26Aefce0664f9410948a" type="Sprite2D" parent="Creature" unique_id=1935339456]
+position = Vector2(118.00001, 121)
+scale = Vector2(0.448, 0.472)
+texture = ExtResource("3_28aoi")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 200, 500, 500)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1156324454]
+anchor_mode = 0
+
+[node name="Creature2" parent="." unique_id=1793231927 instance=ExtResource("1_pq8q7")]
+position = Vector2(816, 66)
+scale = Vector2(0.7, 0.7)
+data = ExtResource("4_jnlp7")
+
+[node name="07a6f91f16915Cac49b0Adf9a295085d" type="Sprite2D" parent="Creature2" unique_id=1787045023]
+texture_filter = 2
+position = Vector2(122.857056, 118.57143)
+scale = Vector2(0.24503979, 0.17609128)
+texture = ExtResource("5_l8v81")
+
+[node name="CardPile" type="Panel" parent="." unique_id=1917143974]
+offset_left = 1098.0
+offset_top = 597.0
+offset_right = 1138.0
+offset_bottom = 637.0
+script = ExtResource("6_vyht1")
+metadata/_custom_type_script = "uid://d2l8uaoel5whd"
+
+[node name="CardHand" type="Panel" parent="." unique_id=219155563]
+offset_left = 417.0
+offset_top = 573.0
+offset_right = 457.0
+offset_bottom = 613.0
+script = ExtResource("7_bf3um")
+enable_reordering = false
+shape = SubResource("Resource_gd4vy")
+max_cards = 10
+metadata/_custom_type_script = "uid://bbi8i6vef3f6y"
+
+[node name="CardDeckManager" type="Node" parent="." unique_id=134106264 node_paths=PackedStringArray("starting_pile")]
+script = ExtResource("10_eji0w")
+deck = SubResource("Resource_r3r3k")
+starting_pile = NodePath("../CardPile")
+metadata/_custom_type_script = "uid://bisyk4bowdvsf"

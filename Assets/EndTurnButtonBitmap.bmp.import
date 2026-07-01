@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://7k554wiexp0c"
+path="res://.godot/imported/EndTurnButtonBitmap.bmp-190e0513dede4173e93072f723c2d5f0.res"
+
+[deps]
+
+source_file="res://Assets/EndTurnButtonBitmap.bmp"
+dest_files=["res://.godot/imported/EndTurnButtonBitmap.bmp-190e0513dede4173e93072f723c2d5f0.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

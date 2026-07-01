@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyAttackMove" format=3 uid="uid://yrydy17ojrnr"]
+
+[ext_resource type="Script" uid="uid://cxk8nxq7mevbi" path="res://Creature Data/Attack_Pattern/new_script.gd" id="1_qi31k"]
+[ext_resource type="Script" uid="uid://b1220yr12wl0u" path="res://Creature Data/Attack_Pattern/EnemyAttackMove.gd" id="2_8hqqy"]
+
+[sub_resource type="Resource" id="Resource_o2hmy"]
+script = ExtResource("1_qi31k")
+type = "Attack"
+metadata/_custom_type_script = "uid://cxk8nxq7mevbi"
+
+[sub_resource type="Resource" id="Resource_1ppm5"]
+script = ExtResource("1_qi31k")
+type = "Block"
+amount = 2
+metadata/_custom_type_script = "uid://cxk8nxq7mevbi"
+
+[resource]
+script = ExtResource("2_8hqqy")
+actions = Array[ExtResource("1_qi31k")]([SubResource("Resource_o2hmy"), SubResource("Resource_1ppm5")])
+metadata/_custom_type_script = "uid://crwrqd6c7y8wu"
