@@ -1,7 +1,7 @@
 {
 	"res://Card Data/move.tscn": {
 		"enabled": true,
-		"last_modified": 1781716112.0,
+		"last_modified": 1782941567,
 		"layout_id": "Move",
 		"tags": [
 			"playable"
