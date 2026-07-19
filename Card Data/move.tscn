@@ -7,6 +7,8 @@
 [sub_resource type="LabelSettings" id="LabelSettings_dbv13"]
 font = ExtResource("3_45xvj")
 font_size = 50
+outline_size = 1
+outline_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
 
 [node name="CardLayout" type="SubViewportContainer" unique_id=841071507]
 texture_filter = 2

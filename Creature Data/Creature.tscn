@@ -9,6 +9,10 @@
 script = ExtResource("2_p1l1x")
 metadata/_custom_type_script = "uid://cs1e2lwpafbvf"
 
+[sub_resource type="Gradient" id="Gradient_muryh"]
+offsets = PackedFloat32Array(0, 0.9858097)
+colors = PackedColorArray(0, 1, 1, 0.25490198, 0.74840313, 0.6073532, 0, 0.48235294)
+
 [sub_resource type="Gradient" id="Gradient_ihyaa"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.16445974, 0.16445976, 0.16445974, 1)
@@ -43,7 +47,32 @@ outline_color = Color(0, 0, 0, 1)
 script = ExtResource("1_kxnm2")
 data = SubResource("Resource_ihyaa")
 
-[node name="ProgressBar" type="TextureProgressBar" parent="." unique_id=328636248]
+[node name="Line2D" type="Line2D" parent="." unique_id=1442317174]
+z_index = -20
+position = Vector2(127, 121)
+points = PackedVector2Array(0, 0, -13, 3)
+width = 20.0
+gradient = SubResource("Gradient_muryh")
+texture_mode = 1
+
+[node name="S" type="Sprite2D" parent="." unique_id=132266911]
+centered = false
+region_rect = Rect2(0, 0, 248, 236)
+
+[node name="GridContainer" type="GridContainer" parent="S" unique_id=868089725]
+offset_top = 276.0
+offset_right = 280.0
+offset_bottom = 373.0
+columns = 5
+
+[node name="ColorRect" type="ColorRect" parent="S" unique_id=1853776915]
+visible = false
+z_index = 10
+offset_right = 256.0
+offset_bottom = 256.0
+color = Color(0, 0.41568628, 0.50980395, 0.3882353)
+
+[node name="ProgressBar" type="TextureProgressBar" parent="S" unique_id=328636248]
 offset_top = 256.0
 offset_right = 256.0
 offset_bottom = 276.0
@@ -51,7 +80,7 @@ value = 100.0
 texture_under = SubResource("GradientTexture1D_muryh")
 texture_progress = SubResource("GradientTexture2D_lslig")
 
-[node name="Label" type="Label" parent="ProgressBar" unique_id=1337113031]
+[node name="Label" type="Label" parent="S/ProgressBar" unique_id=1337113031]
 layout_mode = 0
 offset_left = 106.0
 offset_right = 155.0
@@ -59,24 +88,14 @@ offset_bottom = 23.0
 text = "70/70"
 label_settings = SubResource("LabelSettings_6tlxp")
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=1268414247]
-position = Vector2(127, 121)
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1853776915]
-visible = false
-z_index = 10
-offset_right = 256.0
-offset_bottom = 256.0
-color = Color(0, 0.41568628, 0.50980395, 0.3882353)
-
-[node name="ShieldIcon" type="Sprite2D" parent="." unique_id=1433389936]
+[node name="ShieldIcon" type="Sprite2D" parent="S" unique_id=1433389936]
 visible = false
 z_index = 10
 position = Vector2(1, 252)
 scale = Vector2(0.10409253, 0.11602569)
 texture = ExtResource("4_p1l1x")
 
-[node name="ShieldLabel" type="Label" parent="ShieldIcon" unique_id=1287278747]
+[node name="ShieldLabel" type="Label" parent="S/ShieldIcon" unique_id=1287278747]
 offset_left = -220.95724
 offset_top = -120.66293
 offset_right = 201.74356
@@ -85,6 +104,5 @@ text = "2"
 label_settings = SubResource("LabelSettings_ihyaa")
 horizontal_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=132266911]
-centered = false
-region_rect = Rect2(0, 0, 248, 236)
+[node name="Center" type="Marker2D" parent="S" unique_id=1268414247]
+position = Vector2(127, 121)

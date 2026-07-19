@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Gu_card" format=3 uid="uid://ijecn1lkjgvn"]
+
+[ext_resource type="Script" uid="uid://clpxwpujwvv1x" path="res://Effect Building/Effect.gd" id="1_kt70l"]
+[ext_resource type="Script" uid="uid://c05j30rnbu6y7" path="res://Effect Building/Combat/Apply Status.gd" id="2_enhdv"]
+[ext_resource type="Script" uid="uid://cdrti7htfmhk5" path="res://Card Data/Gu/gu_worm.gd" id="2_jkjqb"]
+
+[sub_resource type="Resource" id="Resource_kt70l"]
+script = ExtResource("2_enhdv")
+target = "Caster"
+metadata/_custom_type_script = "uid://c05j30rnbu6y7"
+
+[resource]
+script = ExtResource("2_jkjqb")
+gu_name = "jin strength gu"
+effects_on_start_of_specific_turns = Dictionary[int, ExtResource("1_kt70l")]({
+1: SubResource("Resource_kt70l")
+})
+metadata/_custom_type_script = "uid://cdrti7htfmhk5"

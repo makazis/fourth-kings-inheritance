@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Gu_Move" format=3 uid="uid://c0ssu5tm5k8jh"]
+
+[ext_resource type="Script" uid="uid://bp3qpdpnu4oiy" path="res://Card Data/Card Tags/card_tag.gd" id="1_5406q"]
+[ext_resource type="Script" uid="uid://c7xhxk6bgq13p" path="res://Card Data/Gu/gu_move.gd" id="2_5l3kn"]
+[ext_resource type="Script" uid="uid://bv3xej4wc1ski" path="res://Effect Building/Combat/DrawCardEffect.gd" id="2_hpukx"]
+[ext_resource type="Resource" uid="uid://rjx7xw0uqqev" path="res://Card Data/Gu/Wind Path/Quartz Northwind Gu/quartz_northwind_gu.tres" id="3_31sop"]
+
+[sub_resource type="Resource" id="Resource_hpukx"]
+script = ExtResource("2_hpukx")
+cards_drawn = 3
+metadata/_custom_type_script = "uid://bv3xej4wc1ski"
+
+[resource]
+script = ExtResource("2_5l3kn")
+parent_gu = ExtResource("3_31sop")
+pe_cost = 0
+card_name = "Step of the Wind"
+card_description = "draw three cards"
+effect = SubResource("Resource_hpukx")
+metadata/_custom_type_script = "uid://c7xhxk6bgq13p"

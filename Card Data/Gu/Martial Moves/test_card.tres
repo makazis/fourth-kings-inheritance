@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Gu_Move" format=3 uid="uid://cckhgs0wjkswd"]
+
+[ext_resource type="Script" uid="uid://c7xhxk6bgq13p" path="res://Card Data/Gu/gu_move.gd" id="1_1sab0"]
+[ext_resource type="Script" uid="uid://bp3qpdpnu4oiy" path="res://Card Data/Card Tags/card_tag.gd" id="1_d3tkk"]
+[ext_resource type="Resource" uid="uid://cakmtuvaublmn" path="res://Creature Data/Friends/Beast Phantoms/dog_phantom.tres" id="1_lbib7"]
+[ext_resource type="Script" uid="uid://f4255sjwoq8y" path="res://Effect Building/Combat/Summon Creature.gd" id="2_5t2is"]
+[ext_resource type="Resource" uid="uid://ceg7jdfqr43tm" path="res://Card Data/Gu/Strength Path/Dog Strength Gu/dog_strength_gu.tres" id="3_d3tkk"]
+[ext_resource type="Script" uid="uid://bv3xej4wc1ski" path="res://Effect Building/Combat/DrawCardEffect.gd" id="3_ddoj8"]
+
+[sub_resource type="Resource" id="Resource_1ruhf"]
+script = ExtResource("3_ddoj8")
+cards_drawn = 5
+metadata/_custom_type_script = "uid://bv3xej4wc1ski"
+
+[sub_resource type="Resource" id="Resource_g6bv6"]
+script = ExtResource("2_5t2is")
+creature_data = ExtResource("1_lbib7")
+next_effect = SubResource("Resource_1ruhf")
+metadata/_custom_type_script = "uid://f4255sjwoq8y"
+
+[resource]
+script = ExtResource("1_1sab0")
+parent_gu = ExtResource("3_d3tkk")
+pe_cost = 0
+c_cost = 0
+card_name = "Test"
+card_description = "Creates another enemy for you to fight >:)"
+effect = SubResource("Resource_g6bv6")
+front_layout_name = &"Move"
+metadata/_custom_type_script = "uid://c7xhxk6bgq13p"

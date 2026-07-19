@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c0tru4mouci7u"]
+
+[ext_resource type="PackedScene" uid="uid://bcx7obwqcf8p7" path="res://Non-Combat/singular_reward_post_combat.tscn" id="1_mtrfx"]
+
+[node name="Node2D" type="Node2D" unique_id=130116637]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=745929745]
+z_index = -999
+offset_right = 2560.0
+offset_bottom = 1261.0
+mouse_filter = 2
+color = Color(0, 0.09953674, 0.09298483, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=477762388]
+offset_left = 765.0
+offset_top = 32.0
+offset_right = 2155.0
+offset_bottom = 1241.0
+alignment = 1
+
+[node name="Node2D" parent="VBoxContainer" unique_id=485985591 instance=ExtResource("1_mtrfx")]
+layout_mode = 2
+
+[node name="Node2D2" parent="VBoxContainer" unique_id=288018123 instance=ExtResource("1_mtrfx")]
+layout_mode = 2

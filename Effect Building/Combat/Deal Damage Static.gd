@@ -1,5 +1,5 @@
 class_name DealDamageEffect extends Effect
-@export var target:String="Defender"
+@export var target:String="Target"
 @export var damage=0;
 func run():
 	for iter_target_atk in EffectContext.roles["Caster"]:

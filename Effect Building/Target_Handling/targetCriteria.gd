@@ -1,6 +1,7 @@
 class_name TargetCriteria extends Resource
 @export_enum("Any","Friendly","Enemy") var team:String="Any" #Any means any character can be targeted with an effect
 @export var role:String="";
+## Roles that are targeted. Leave blank to target all roles. 
 @export var except:TargetCriteria=null #Target criteria that if it matches entity, it unmatches the entity
 func matches(entity:Creature):
 	#Imma do some never nesting here, because yipii

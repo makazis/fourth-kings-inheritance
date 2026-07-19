@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Gu_card" format=3 uid="uid://rjx7xw0uqqev"]
+
+[ext_resource type="Script" uid="uid://clpxwpujwvv1x" path="res://Effect Building/Effect.gd" id="1_anqmk"]
+[ext_resource type="Script" uid="uid://bv3xej4wc1ski" path="res://Effect Building/Combat/DrawCardEffect.gd" id="1_sekkn"]
+[ext_resource type="Script" uid="uid://cdrti7htfmhk5" path="res://Card Data/Gu/gu_worm.gd" id="2_ai8jl"]
+[ext_resource type="Script" uid="uid://dwpgb16legr4l" path="res://Effect Building/Logic Oriented/Variables/CheckVariableEffect.gd" id="2_fthq3"]
+[ext_resource type="Script" uid="uid://bj00o1vp73xhm" path="res://Effect Building/Logic Oriented/Variables/ModiftVariableEffect.gd" id="3_1jb32"]
+
+[sub_resource type="Resource" id="Resource_1jb32"]
+script = ExtResource("1_sekkn")
+metadata/_custom_type_script = "uid://bv3xej4wc1ski"
+
+[sub_resource type="Resource" id="Resource_fthq3"]
+script = ExtResource("2_fthq3")
+variable_name = "Quartz Northwind Gu Played Cards"
+match_condition = "<="
+second_value = "3"
+execute = SubResource("Resource_1jb32")
+metadata/_custom_type_script = "uid://dwpgb16legr4l"
+
+[sub_resource type="Resource" id="Resource_sekkn"]
+script = ExtResource("3_1jb32")
+variable_name = "Quartz Northwind Gu Played Cards"
+second_value = "1"
+next_effect = SubResource("Resource_fthq3")
+metadata/_custom_type_script = "uid://bj00o1vp73xhm"
+
+[resource]
+script = ExtResource("2_ai8jl")
+gu_name = "Quartz Northwind Gu"
+effect_on_gu_move_used = SubResource("Resource_sekkn")
+combat_description = "draw a card on the first three times you play a Quartz Northwind Gu move"
+metadata/_custom_type_script = "uid://cdrti7htfmhk5"

@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="Gu_Move" format=3 uid="uid://byj5qiohqncqk"]
+
+[ext_resource type="Script" uid="uid://c05j30rnbu6y7" path="res://Effect Building/Combat/Apply Status.gd" id="1_3rfsm"]
+[ext_resource type="Script" uid="uid://bp3qpdpnu4oiy" path="res://Card Data/Card Tags/card_tag.gd" id="1_fvlbq"]
+[ext_resource type="Script" uid="uid://c7xhxk6bgq13p" path="res://Card Data/Gu/gu_move.gd" id="1_lkkw5"]
+[ext_resource type="Resource" uid="uid://ceg7jdfqr43tm" path="res://Card Data/Gu/Strength Path/Dog Strength Gu/dog_strength_gu.tres" id="2_fvlbq"]
+[ext_resource type="Script" uid="uid://co0nojkhbeoum" path="res://Effect Building/Target_Handling/targetCriteria.gd" id="4_oiy74"]
+
+[sub_resource type="Resource" id="Resource_3rfsm"]
+script = ExtResource("1_3rfsm")
+amount = 4
+status_effect = "Shackle"
+metadata/_custom_type_script = "uid://c05j30rnbu6y7"
+
+[sub_resource type="Resource" id="Resource_d381j"]
+script = ExtResource("1_3rfsm")
+amount = -4
+next_effect = SubResource("Resource_3rfsm")
+metadata/_custom_type_script = "uid://c05j30rnbu6y7"
+
+[sub_resource type="Resource" id="Resource_0q0an"]
+script = ExtResource("4_oiy74")
+team = "Enemy"
+metadata/_custom_type_script = "uid://co0nojkhbeoum"
+
+[resource]
+script = ExtResource("1_lkkw5")
+parent_gu = ExtResource("2_fvlbq")
+c_cost = 0
+card_name = "Dog's bark"
+card_description = "Reduce the strength of all enemies by 4 this turn"
+effect = SubResource("Resource_d381j")
+target_criteria = SubResource("Resource_0q0an")
+target_count = 0
+front_layout_name = &"Move"
+metadata/_custom_type_script = "uid://c7xhxk6bgq13p"

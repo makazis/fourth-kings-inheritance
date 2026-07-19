@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="Gu_Move" format=3 uid="uid://b764u3r0bej0i"]
+
+[ext_resource type="Script" uid="uid://drt5po2eht3pn" path="res://Effect Building/Combat/Deal Damage Static.gd" id="1_0ubca"]
+[ext_resource type="Script" uid="uid://bp3qpdpnu4oiy" path="res://Card Data/Card Tags/card_tag.gd" id="1_glamj"]
+[ext_resource type="Resource" uid="uid://ceg7jdfqr43tm" path="res://Card Data/Gu/Strength Path/Dog Strength Gu/dog_strength_gu.tres" id="1_nrm3r"]
+[ext_resource type="Script" uid="uid://c7xhxk6bgq13p" path="res://Card Data/Gu/gu_move.gd" id="1_svqw7"]
+[ext_resource type="Script" uid="uid://bl1kp2n20pfe1" path="res://Effect Building/Logic Oriented/times.gd" id="2_glamj"]
+[ext_resource type="Script" uid="uid://co0nojkhbeoum" path="res://Effect Building/Target_Handling/targetCriteria.gd" id="5_pnk7t"]
+
+[sub_resource type="Resource" id="Resource_glamj"]
+script = ExtResource("1_0ubca")
+damage = 3
+metadata/_custom_type_script = "uid://drt5po2eht3pn"
+
+[sub_resource type="Resource" id="Resource_0ubca"]
+script = ExtResource("2_glamj")
+execute = SubResource("Resource_glamj")
+times = 4
+metadata/_custom_type_script = "uid://bl1kp2n20pfe1"
+
+[sub_resource type="Resource" id="Resource_xtck4"]
+script = ExtResource("5_pnk7t")
+team = "Enemy"
+metadata/_custom_type_script = "uid://co0nojkhbeoum"
+
+[resource]
+script = ExtResource("1_svqw7")
+parent_gu = ExtResource("1_nrm3r")
+card_name = "Fangs of the Hound"
+card_description = "deal 3 damage 4 times"
+effect = SubResource("Resource_0ubca")
+target_criteria = SubResource("Resource_xtck4")
+front_layout_name = &"Move"
+metadata/_custom_type_script = "uid://c7xhxk6bgq13p"

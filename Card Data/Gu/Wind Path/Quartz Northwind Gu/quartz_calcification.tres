@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Gu_Move" format=3 uid="uid://o3bveccqq3pp"]
+
+[ext_resource type="Script" uid="uid://bp3qpdpnu4oiy" path="res://Card Data/Card Tags/card_tag.gd" id="1_iy66i"]
+[ext_resource type="Resource" uid="uid://dkkoewv582unq" path="res://Card Data/Gu/Wind Path/Quartz Northwind Gu/quartz_shield.tres" id="2_c3iwm"]
+[ext_resource type="Resource" uid="uid://rjx7xw0uqqev" path="res://Card Data/Gu/Wind Path/Quartz Northwind Gu/quartz_northwind_gu.tres" id="2_oqjlv"]
+[ext_resource type="Script" uid="uid://bc517nkfa4ci3" path="res://Effect Building/Combat/Create_Card.gd" id="3_6rf18"]
+[ext_resource type="Script" uid="uid://c7xhxk6bgq13p" path="res://Card Data/Gu/gu_move.gd" id="3_c3iwm"]
+
+[sub_resource type="Resource" id="Resource_sekkn"]
+script = ExtResource("3_6rf18")
+created_card_data = ExtResource("2_c3iwm")
+metadata/_custom_type_script = "uid://bc517nkfa4ci3"
+
+[resource]
+script = ExtResource("3_c3iwm")
+parent_gu = ExtResource("2_oqjlv")
+c_cost = 2
+card_name = "Quartz Calcification"
+card_description = "Add a Quartz Shield to your hand"
+effect = SubResource("Resource_sekkn")
+metadata/_custom_type_script = "uid://c7xhxk6bgq13p"

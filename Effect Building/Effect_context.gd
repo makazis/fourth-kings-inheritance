@@ -5,7 +5,13 @@ var roles={
 	"Defender":[], #Characters that are targeted during an action. 
 	"Damaged":[], #Characters that are damaged via a certain action. 
 	"Fitting Targets":[], #Characters that match the target criteria of a card's activation. 
+	"Friendly":[],
+	"Neutral":[],
+	"Enemy":[]
 }; #This will be a dictionary with dynamically assigned targets for cards. 
+var variables={
+	"Turn":0
+}; #This will be a dictionary with game related variables. I will add some other game-related variables in here later on. 
 #An example would be 'Attacker' being assigned to the creature attacking a different creature.
 #or perhaps 'Defender' being assigned to the creature who is being attacked via the attack. This does mean that if there are multiple 
 
@@ -15,10 +21,16 @@ signal combat_ends
 
 var won=false
 var all_entities=[] #Just a set containing every entity that is loaded in game. 
+var effect_debug=true
+func debug_print(text:String):
+	if effect_debug:
+		print(text)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	CombatData.start_turn.connect(on_turn_start)
 	pass # Replace with function body.
-
+func on_turn_start(turn:int):
+	variables["Turn"]+=1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

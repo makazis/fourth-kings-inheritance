@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://d0ommctesty06"]
+
+[ext_resource type="Texture2D" uid="uid://cc7vfbmny1fky" path="res://Assets/Icons/SwordIcon.png" id="1_k5rha"]
+[ext_resource type="Script" uid="uid://8wb2hnsqyq05" path="res://Creature Data/Other/status_effect.gd" id="1_w3rgf"]
+[ext_resource type="FontFile" uid="uid://ds1saal6ugufw" path="res://Assets/Excalifont-Regular.woff2" id="2_w3rgf"]
+[ext_resource type="Texture2D" uid="uid://b3j11g63dl0i1" path="res://Assets/Icons/ShieldIcon.png" id="3_8vm10"]
+[ext_resource type="Texture2D" uid="uid://dkorpchsjpt0a" path="res://Assets/Icons/CurseIcon.png" id="4_0x71u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font = ExtResource("2_w3rgf")
+font_size = 10
+font_color = Color(0.40192744, 0.99999994, 0.9928172, 1)
+outline_size = 2
+outline_color = Color(0, 1, 1, 1)
+
+[node name="Node2D" type="Panel" unique_id=909526048]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_right = 0.055000003
+anchor_bottom = 0.079
+offset_right = -0.40000153
+offset_bottom = 0.22999954
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_w3rgf")
+
+[node name="Icon" type="Node2D" parent="." unique_id=1192239607]
+position = Vector2(15, 25)
+rotation = 0.3654006
+scale = Vector2(0.08920445, 0.047435056)
+
+[node name="ShieldIcon" type="Sprite2D" parent="Icon" unique_id=1291684375]
+visible = false
+position = Vector2(144.21841, -113.6355)
+rotation = -0.62367177
+scale = Vector2(1.381418, 2.1519644)
+skew = 0.42297053
+texture = ExtResource("3_8vm10")
+
+[node name="SwordIcon" type="Sprite2D" parent="Icon" unique_id=2075088410]
+visible = false
+texture = ExtResource("1_k5rha")
+
+[node name="CurseIcon" type="Sprite2D" parent="Icon" unique_id=29938115]
+position = Vector2(88.186676, -62.036682)
+rotation = -0.62367177
+scale = Vector2(1.1464596, 1.8458929)
+skew = 0.42297065
+texture = ExtResource("4_0x71u")
+
+[node name="Label" type="Label" parent="." unique_id=1808601113]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 38.0
+offset_right = 83.0
+offset_bottom = 61.0
+text = "100B"
+label_settings = SubResource("LabelSettings_g4v7s")

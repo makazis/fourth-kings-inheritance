@@ -24,5 +24,5 @@ func deal_to(target: CardContainer, count: int, config: Card.MoveConfig = null) 
 		target._schedule_idle_restart(settle_dur)
 	elif use_batch:
 		target._batch_mode = false
-
+	target.arrange(0.5)
 	return dealt

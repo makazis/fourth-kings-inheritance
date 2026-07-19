@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="Creature" format=3 uid="uid://cakmtuvaublmn"]
+
+[ext_resource type="Script" uid="uid://b1220yr12wl0u" path="res://Creature Data/Attack_Pattern/EnemyAttackMove.gd" id="1_1qfgk"]
+[ext_resource type="Script" uid="uid://cs1e2lwpafbvf" path="res://Creature Data/creature_layout.gd" id="1_scq6q"]
+[ext_resource type="Script" uid="uid://cxk8nxq7mevbi" path="res://Creature Data/Attack_Pattern/new_script.gd" id="2_rn60w"]
+[ext_resource type="Script" uid="uid://crwrqd6c7y8wu" path="res://Creature Data/Attack_Pattern/Attack_Pattern.gd" id="3_opbc7"]
+[ext_resource type="Texture2D" uid="uid://beu7n71jt8hy2" path="res://Creature Data/Images/07a6f91f16915cac49b0adf9a295085d.jpg" id="4_ykqf5"]
+
+[sub_resource type="Resource" id="Resource_0sscr"]
+script = ExtResource("2_rn60w")
+type = "Attack"
+amount = 4
+times = 2
+metadata/_custom_type_script = "uid://cxk8nxq7mevbi"
+
+[sub_resource type="Resource" id="Resource_3qxtp"]
+script = ExtResource("1_1qfgk")
+actions = Array[ExtResource("2_rn60w")]([SubResource("Resource_0sscr")])
+name = "Bite"
+metadata/_custom_type_script = "uid://b1220yr12wl0u"
+
+[sub_resource type="Resource" id="Resource_rn60w"]
+script = ExtResource("2_rn60w")
+type = "Block"
+amount = 4
+target_perhaps = "Friendly"
+metadata/_custom_type_script = "uid://cxk8nxq7mevbi"
+
+[sub_resource type="Resource" id="Resource_1qfgk"]
+script = ExtResource("1_1qfgk")
+actions = Array[ExtResource("2_rn60w")]([SubResource("Resource_rn60w")])
+name = "Band Together"
+metadata/_custom_type_script = "uid://b1220yr12wl0u"
+
+[sub_resource type="Resource" id="Resource_d3h7u"]
+script = ExtResource("2_rn60w")
+type = "Buff"
+amount = 1
+target_perhaps = "Friendly"
+metadata/_custom_type_script = "uid://cxk8nxq7mevbi"
+
+[sub_resource type="Resource" id="Resource_aisys"]
+script = ExtResource("1_1qfgk")
+actions = Array[ExtResource("2_rn60w")]([SubResource("Resource_d3h7u")])
+name = "Pack Tactics"
+metadata/_custom_type_script = "uid://b1220yr12wl0u"
+
+[sub_resource type="Resource" id="Resource_8sdwp"]
+script = ExtResource("3_opbc7")
+PatternType = "Random+"
+attacks = Array[ExtResource("1_1qfgk")]([SubResource("Resource_3qxtp"), SubResource("Resource_1qfgk"), SubResource("Resource_aisys")])
+metadata/_custom_type_script = "uid://crwrqd6c7y8wu"
+
+[resource]
+script = ExtResource("1_scq6q")
+name = "Dog Phantom"
+hp = 14
+image = ExtResource("4_ykqf5")
+team = "Friendly"
+attack_pattern = SubResource("Resource_8sdwp")
+metadata/_custom_type_script = "uid://cs1e2lwpafbvf"

@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="Gu_Move" format=3 uid="uid://xmo24hy1wkp4"]
+
+[ext_resource type="Script" uid="uid://bp3qpdpnu4oiy" path="res://Card Data/Card Tags/card_tag.gd" id="1_8b3po"]
+[ext_resource type="Script" uid="uid://c7xhxk6bgq13p" path="res://Card Data/Gu/gu_move.gd" id="1_8w4ts"]
+[ext_resource type="Script" uid="uid://udmx0spixt2u" path="res://Effect Building/Combat/Apply Block Static.gd" id="1_umv2m"]
+[ext_resource type="Script" uid="uid://c05j30rnbu6y7" path="res://Effect Building/Combat/Apply Status.gd" id="2_8b3po"]
+[ext_resource type="Script" uid="uid://b1g28jxqh0w4l" path="res://Effect Building/Logic Oriented/foreachEffect.gd" id="3_0foex"]
+[ext_resource type="Script" uid="uid://co0nojkhbeoum" path="res://Effect Building/Target_Handling/targetCriteria.gd" id="4_1u0if"]
+[ext_resource type="Resource" uid="uid://ceg7jdfqr43tm" path="res://Card Data/Gu/Strength Path/Dog Strength Gu/dog_strength_gu.tres" id="5_pfysl"]
+
+[sub_resource type="Resource" id="Resource_umv2m"]
+script = ExtResource("1_umv2m")
+target = "Caster"
+block = 7
+metadata/_custom_type_script = "uid://udmx0spixt2u"
+
+[sub_resource type="Resource" id="Resource_tavqp"]
+script = ExtResource("2_8b3po")
+target = "Caster"
+next_effect = SubResource("Resource_umv2m")
+metadata/_custom_type_script = "uid://c05j30rnbu6y7"
+
+[sub_resource type="Resource" id="Resource_8g0iw"]
+script = ExtResource("4_1u0if")
+team = "Friendly"
+metadata/_custom_type_script = "uid://co0nojkhbeoum"
+
+[sub_resource type="Resource" id="Resource_mmcem"]
+script = ExtResource("3_0foex")
+target_criteria = SubResource("Resource_8g0iw")
+execute = SubResource("Resource_tavqp")
+metadata/_custom_type_script = "uid://b1g28jxqh0w4l"
+
+[resource]
+script = ExtResource("1_8w4ts")
+parent_gu = ExtResource("5_pfysl")
+card_name = "Pack Tactics"
+card_description = "gain 7 block and 1 strength for each ally"
+effect = SubResource("Resource_mmcem")
+front_layout_name = &"Move"
+metadata/_custom_type_script = "uid://c7xhxk6bgq13p"

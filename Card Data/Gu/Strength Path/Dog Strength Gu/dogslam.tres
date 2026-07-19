@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="Gu_Move" format=3 uid="uid://dyfj4elrqudsi"]
+
+[ext_resource type="Script" uid="uid://udmx0spixt2u" path="res://Effect Building/Combat/Apply Block Static.gd" id="1_dqo53"]
+[ext_resource type="Script" uid="uid://c7xhxk6bgq13p" path="res://Card Data/Gu/gu_move.gd" id="1_nmt25"]
+[ext_resource type="Script" uid="uid://bp3qpdpnu4oiy" path="res://Card Data/Card Tags/card_tag.gd" id="1_nsto3"]
+[ext_resource type="Script" uid="uid://drt5po2eht3pn" path="res://Effect Building/Combat/Deal Damage Static.gd" id="2_n6lxf"]
+[ext_resource type="Resource" uid="uid://ceg7jdfqr43tm" path="res://Card Data/Gu/Strength Path/Dog Strength Gu/dog_strength_gu.tres" id="3_nsto3"]
+[ext_resource type="Script" uid="uid://co0nojkhbeoum" path="res://Effect Building/Target_Handling/targetCriteria.gd" id="5_n6lxf"]
+
+[sub_resource type="Resource" id="Resource_yppcv"]
+script = ExtResource("1_dqo53")
+target = "Caster"
+block = 12
+metadata/_custom_type_script = "uid://udmx0spixt2u"
+
+[sub_resource type="Resource" id="Resource_cn8c5"]
+script = ExtResource("2_n6lxf")
+damage = 12
+next_effect = SubResource("Resource_yppcv")
+metadata/_custom_type_script = "uid://drt5po2eht3pn"
+
+[sub_resource type="Resource" id="Resource_lajyh"]
+script = ExtResource("5_n6lxf")
+team = "Enemy"
+metadata/_custom_type_script = "uid://co0nojkhbeoum"
+
+[resource]
+script = ExtResource("1_nmt25")
+parent_gu = ExtResource("3_nsto3")
+c_cost = 2
+card_name = "Body Slam"
+card_description = "deal 12 damage, gain 12 block"
+effect = SubResource("Resource_cn8c5")
+target_criteria = SubResource("Resource_lajyh")
+front_layout_name = &"Move"
+metadata/_custom_type_script = "uid://c7xhxk6bgq13p"

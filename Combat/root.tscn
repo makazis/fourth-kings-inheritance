@@ -1,37 +1,35 @@
 [gd_scene format=3 uid="uid://wtjqtvkrv78y"]
 
 [ext_resource type="Script" uid="uid://5brbuxyb7kh" path="res://Combat/root.gd" id="1_cgq65"]
-[ext_resource type="PackedScene" uid="uid://ceggrswxy64mv" path="res://Creature Data/Creature.tscn" id="2_jsov7"]
-[ext_resource type="Texture2D" uid="uid://cpo2lhw0waoco" path="res://Creature Data/Images/40a414755ddd26aefce0664f9410948a.jpg" id="3_axbwd"]
-[ext_resource type="Script" uid="uid://cs1e2lwpafbvf" path="res://Creature Data/creature_layout.gd" id="3_lferd"]
-[ext_resource type="Resource" uid="uid://gkdxhovi7rfx" path="res://Creature Data/Enemies/Ethereal Dog.tres" id="5_5dw8y"]
+[ext_resource type="Resource" uid="uid://c0ssu5tm5k8jh" path="res://Card Data/Gu/Wind Path/Quartz Northwind Gu/wind_step.tres" id="7_cf78l"]
 [ext_resource type="Script" uid="uid://bkxlv2512vggc" path="res://Combat/deck.gd" id="9_71fpb"]
+[ext_resource type="Resource" uid="uid://b4pi3ovfh02uo" path="res://Card Data/Gu/Wind Path/Quartz Northwind Gu/sidestep.tres" id="9_cf78l"]
 [ext_resource type="Script" uid="uid://bisyk4bowdvsf" path="res://addons/simple_cards/deck/manager/card_deck_manager.gd" id="10_kffyy"]
+[ext_resource type="Resource" uid="uid://o3bveccqq3pp" path="res://Card Data/Gu/Wind Path/Quartz Northwind Gu/quartz_calcification.tres" id="11_axbwd"]
 [ext_resource type="Script" uid="uid://c8315v58tr66b" path="res://addons/simple_cards/card/card_resource/card_resource.gd" id="11_g2ija"]
+[ext_resource type="Resource" uid="uid://dyfj4elrqudsi" path="res://Card Data/Gu/Strength Path/Dog Strength Gu/dogslam.tres" id="12_cgq65"]
 [ext_resource type="Resource" uid="uid://cccfo5swo1inr" path="res://Card Data/Gu/Martial Moves/strike.tres" id="12_skhyk"]
 [ext_resource type="Resource" uid="uid://d4nhhtayminlq" path="res://Card Data/Gu/Martial Moves/defend.tres" id="13_jlb0g"]
+[ext_resource type="Resource" uid="uid://byj5qiohqncqk" path="res://Card Data/Gu/Strength Path/Dog Strength Gu/dogbark.tres" id="13_jsov7"]
+[ext_resource type="Resource" uid="uid://d2n8c2u7fyyx1" path="res://Card Data/Gu/Martial Moves/sword_boomerang.tres" id="13_lferd"]
 [ext_resource type="Script" uid="uid://lhb5ry3o8icy" path="res://addons/simple_cards/deck/card_deck.gd" id="14_88goi"]
+[ext_resource type="Resource" uid="uid://btx77a6ge1sal" path="res://Card Data/Gu/Wind Path/Quartz Northwind Gu/escape_the_fog.tres" id="14_kp6kh"]
+[ext_resource type="Resource" uid="uid://b764u3r0bej0i" path="res://Card Data/Gu/Strength Path/Dog Strength Gu/houndfangs.tres" id="15_71fpb"]
+[ext_resource type="Resource" uid="uid://bhlm57ymeitr2" path="res://Card Data/Gu/Strength Path/Dog Strength Gu/dogpile.tres" id="15_lferd"]
 [ext_resource type="Script" uid="uid://cqlyvmgm30540" path="res://Combat/hand.gd" id="15_u8awk"]
+[ext_resource type="Resource" uid="uid://deptuw461x50x" path="res://Card Data/Gu/Wind Path/Quartz Northwind Gu/airdash.tres" id="15_x6wr7"]
 [ext_resource type="Script" uid="uid://cgtxv1fnflwfu" path="res://addons/simple_cards/shape/premade_shapes/arc_shape.gd" id="16_k8i5p"]
 [ext_resource type="Script" uid="uid://d2l8uaoel5whd" path="res://addons/simple_cards/containers/pile/card_pile.gd" id="17_b47kv"]
+[ext_resource type="Resource" uid="uid://cckhgs0wjkswd" path="res://Card Data/Gu/Martial Moves/test_card.tres" id="17_x6wr7"]
 [ext_resource type="Texture2D" uid="uid://crd33hf2akbos" path="res://Assets/Screenshot 2026-06-17 162811.png" id="18_vys3o"]
 [ext_resource type="FontFile" uid="uid://ds1saal6ugufw" path="res://Assets/Excalifont-Regular.woff2" id="19_ajjgt"]
 [ext_resource type="Texture2D" uid="uid://b5hnow1oi63sd" path="res://Assets/EndTurnButton.png" id="20_5y3d7"]
 [ext_resource type="BitMap" uid="uid://7k554wiexp0c" path="res://Assets/EndTurnButtonBitmap.bmp" id="21_i8h5o"]
 
-[sub_resource type="Resource" id="Resource_axbwd"]
-resource_local_to_scene = true
-script = ExtResource("3_lferd")
-name = "Fang Yuan"
-hp = 70
-image = ExtResource("3_axbwd")
-team = "Friendly"
-metadata/_custom_type_script = "uid://cs1e2lwpafbvf"
-
 [sub_resource type="Resource" id="Resource_r3r3k"]
 script = ExtResource("14_88goi")
 deck_name = &"TestDeck"
-cards = Array[ExtResource("11_g2ija")]([ExtResource("12_skhyk"), ExtResource("12_skhyk"), ExtResource("12_skhyk"), ExtResource("12_skhyk"), ExtResource("12_skhyk"), ExtResource("13_jlb0g"), ExtResource("13_jlb0g"), ExtResource("13_jlb0g"), ExtResource("13_jlb0g"), ExtResource("13_jlb0g")])
+cards = Array[ExtResource("11_g2ija")]([ExtResource("12_skhyk"), ExtResource("15_71fpb"), ExtResource("7_cf78l"), ExtResource("9_cf78l"), ExtResource("15_lferd"), ExtResource("13_jlb0g"), ExtResource("11_axbwd"), ExtResource("12_cgq65"), ExtResource("13_jsov7"), ExtResource("14_kp6kh"), ExtResource("15_x6wr7"), ExtResource("13_lferd"), ExtResource("17_x6wr7")])
 metadata/_custom_type_script = "uid://lhb5ry3o8icy"
 
 [sub_resource type="Resource" id="Resource_gd4vy"]
@@ -60,24 +58,28 @@ resource_local_to_scene = true
 font = ExtResource("19_ajjgt")
 font_size = 40
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsov7"]
+resource_local_to_scene = true
+size = Vector2(1232, 1241)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgq65"]
+resource_local_to_scene = true
+size = Vector2(1232, 956)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axbwd"]
+size = Vector2(1232, 1241)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(1232, 956)
+
 [node name="Root" type="Node2D" unique_id=1328499140]
 script = ExtResource("1_cgq65")
 
-[node name="Fang Yuan" parent="." unique_id=1252677390 instance=ExtResource("2_jsov7")]
-position = Vector2(90, 189)
-scale = Vector2(1.5, 1.5)
-data = SubResource("Resource_axbwd")
-
-[node name="Doggo" parent="." unique_id=1793231927 instance=ExtResource("2_jsov7")]
-position = Vector2(2098, 254)
-scale = Vector2(1.5, 1.5)
-data = ExtResource("5_5dw8y")
-
 [node name="Deck" type="Panel" parent="." unique_id=1917143974]
-offset_left = 2599.0
-offset_top = 1270.0
-offset_right = 2639.0
-offset_bottom = 1310.0
+offset_left = 2607.0
+offset_top = 1327.0
+offset_right = 2647.0
+offset_bottom = 1367.0
 script = ExtResource("9_71fpb")
 face_up = true
 metadata/_custom_type_script = "uid://d2l8uaoel5whd"
@@ -91,6 +93,7 @@ metadata/_custom_type_script = "uid://bisyk4bowdvsf"
 
 [node name="Hand" type="Panel" parent="." unique_id=219155563]
 self_modulate = Color(1, 1, 1, 0)
+z_index = 20
 offset_left = 906.0
 offset_top = 952.0
 offset_right = 946.0
@@ -98,14 +101,22 @@ offset_bottom = 992.0
 script = ExtResource("15_u8awk")
 enable_reordering = false
 shape = SubResource("Resource_gd4vy")
-max_cards = 6
+max_cards = 10
 metadata/_custom_type_script = "uid://bbi8i6vef3f6y"
 
 [node name="DiscardPile" type="Panel" parent="." unique_id=180910201]
-offset_left = 2668.0
-offset_top = 1289.0
-offset_right = 2708.0
-offset_bottom = 1329.0
+offset_left = 2676.0
+offset_top = 1346.0
+offset_right = 2716.0
+offset_bottom = 1386.0
+script = ExtResource("17_b47kv")
+metadata/_custom_type_script = "uid://d2l8uaoel5whd"
+
+[node name="ExhaustPile" type="Panel" parent="." unique_id=1055306536]
+offset_left = 2515.0
+offset_top = 1394.0
+offset_right = 2555.0
+offset_bottom = 1434.0
 script = ExtResource("17_b47kv")
 metadata/_custom_type_script = "uid://d2l8uaoel5whd"
 
@@ -185,8 +196,52 @@ texture_normal = ExtResource("20_5y3d7")
 texture_click_mask = ExtResource("21_i8h5o")
 
 [node name="Timer" type="Timer" parent="." unique_id=2113416048]
-wait_time = 0.6
+wait_time = 0.2
 one_shot = true
+
+[node name="DragArea4" type="Area2D" parent="." unique_id=1743876184]
+position = Vector2(1880, 602)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragArea4" unique_id=1810447271]
+position = Vector2(44, 28.5)
+shape = SubResource("RectangleShape2D_jsov7")
+
+[node name="DragArea3" type="Area2D" parent="." unique_id=220950517]
+position = Vector2(1880, 602)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragArea3" unique_id=30001419]
+position = Vector2(44, -114)
+shape = SubResource("RectangleShape2D_cgq65")
+
+[node name="DragArea2" type="Area2D" parent="." unique_id=387482346]
+position = Vector2(592, 602)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragArea2" unique_id=1686199303]
+position = Vector2(44, 28.5)
+shape = SubResource("RectangleShape2D_axbwd")
+
+[node name="DragArea" type="Area2D" parent="." unique_id=1126227568]
+position = Vector2(592, 602)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragArea" unique_id=1546847182]
+position = Vector2(44, -114)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Friendly Characters" type="Marker2D" parent="." unique_id=346881410]
+position = Vector2(592, 602)
+
+[node name="Friends" type="Node2D" parent="Friendly Characters" unique_id=1780544753]
+position = Vector2(-472, -210)
+
+[node name="UnFriendly Characters" type="Marker2D" parent="." unique_id=1750648651]
+position = Vector2(1880, 602)
+
+[node name="Friends" type="Node2D" parent="UnFriendly Characters" unique_id=1490923858]
+position = Vector2(-459, -326)
 
 [connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="mouse_exited" from="DragArea4" to="." method="_on_drag_area2_2_mouse_exited"]
+[connection signal="mouse_entered" from="DragArea3" to="." method="_on_drag_area2_mouse_entered"]
+[connection signal="mouse_exited" from="DragArea2" to="." method="_on_drag_area_mouse_exited"]
+[connection signal="mouse_entered" from="DragArea" to="." method="_on_drag_area_mouse_entered"]

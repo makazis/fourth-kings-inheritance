@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://btdkswm55gbmu"]
+
+[ext_resource type="Script" uid="uid://ue38jmfu5si1" path="res://Shitposting/music_player_trust_me_bro.gd" id="1_kvmiy"]
+
+[node name="MusicPlayerTrustMeBro" type="Node2D" unique_id=2054029648]
+script = ExtResource("1_kvmiy")
+
+[node name="Timer" type="Timer" parent="." unique_id=2141963232]
+wait_time = 240.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

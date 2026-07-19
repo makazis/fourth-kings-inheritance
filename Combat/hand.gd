@@ -17,13 +17,13 @@ func _physics_process(delta: float) -> void:
 			var target_creature=null
 			for entity in EffectContext.roles["Fitting Targets"]:
 				entity.target_indicator.color=Color(0.0, 0.416, 0.51, 0.388)
-				var entity_distance=_dragged_card._last_pos.distance_to(entity.marker.global_position)
+				var entity_distance=_dragged_card._last_pos.distance_to(entity.center.global_position)
 				if entity_distance<closest_distance:
 					target_creature=entity
 					closest_distance=entity_distance
 			target_creature.target_indicator.color=Color(0.832, 0.315, 0.43, 0.463)
 func _handle_dragged_card(card: Card) -> void:
-	if card.card_data.c_cost>CombatData.concentration or card.card_data.pe_cost>CombatData.primeval_essence: #Card is not to be played
+	if card.card_data.c_cost>CombatData.concentration or card.card_data.pe_cost>CombatData.primeval_essence or "Unplayable" in card.card_tag_ids: #Card is not to be played
 		wait_till_dropped=2
 		#_finish_card_drop.call_deferred(true)
 		return
@@ -62,7 +62,7 @@ func _finish_card_drop() -> void:
 	var card_dragged_for=_dragged_card.global_position.distance_to(get_card_target_position(_dragged_card)+global_position)
 	
 	if card_dragged_for>400:
-		move_cards_to([_dragged_card],$"../DiscardPile")
+		
 		
 		emit_signal("card_played",_dragged_card)
 		
@@ -70,13 +70,13 @@ func _finish_card_drop() -> void:
 		CombatData.primeval_essence-=_dragged_card.card_data.pe_cost
 		CombatData.root_visual_update.emit()
 		
-		EffectContext.roles["Caster"]=[$"../Fang Yuan"]
+		
 		EffectContext.roles["Target"]=[]
 		if _dragged_card.card_data.target_count==1 and _dragged_card.card_data.target_criteria!=null:
 			var closest_distance=INF
 			var target_creature=null
 			for entity in EffectContext.roles["Fitting Targets"]:
-				var entity_distance=_dragged_card._last_pos.distance_to(entity.marker.global_position)
+				var entity_distance=_dragged_card._last_pos.distance_to(entity.center.global_position)
 				if entity_distance<closest_distance:
 					target_creature=entity
 					closest_distance=entity_distance
@@ -85,7 +85,15 @@ func _finish_card_drop() -> void:
 		else:
 			for entity in EffectContext.roles["Fitting Targets"]:
 				EffectContext.roles["Target"].append(entity)
-		_dragged_card.card_data.effect.process()
+		await _dragged_card.play()
+		if _dragged_card!=null:
+			if "Exhaust" in _dragged_card.card_tag_ids:
+				print("Exhausted Succesfully")
+				move_cards_to([_dragged_card],$"../ExhaustPile")
+			else:
+				move_cards_to([_dragged_card],$"../DiscardPile")
+		#_dragged_card.card_data.effect.process()
+		#_dragged_card.card_data.is_played()
 	_dragged_card = null
 	_drag_start_index = -1
 	_last_reorder_index = -1

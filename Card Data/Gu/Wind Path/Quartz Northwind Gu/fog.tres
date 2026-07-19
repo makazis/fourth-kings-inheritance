@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Gu_Move" format=3 uid="uid://diueilphk0ele"]
+
+[ext_resource type="Script" uid="uid://bp3qpdpnu4oiy" path="res://Card Data/Card Tags/card_tag.gd" id="1_82dys"]
+[ext_resource type="Script" uid="uid://duopmimnkn4f0" path="res://Card Data/Card Tags/unplayable.gd" id="2_aqcl5"]
+[ext_resource type="Script" uid="uid://c7xhxk6bgq13p" path="res://Card Data/Gu/gu_move.gd" id="2_s18wc"]
+
+[sub_resource type="Resource" id="Resource_82dys"]
+script = ExtResource("2_aqcl5")
+metadata/_custom_type_script = "uid://duopmimnkn4f0"
+
+[resource]
+script = ExtResource("2_s18wc")
+pe_cost = 0
+c_cost = 0
+card_name = "Fog"
+card_description = "Unplayable"
+card_tags = Array[ExtResource("1_82dys")]([SubResource("Resource_82dys")])
+front_layout_name = &"unplayable"
+metadata/_custom_type_script = "uid://c7xhxk6bgq13p"

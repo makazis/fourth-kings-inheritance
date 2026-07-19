@@ -5,7 +5,7 @@ extends CardLayout
 @onready var description_label: Label = $SubViewport/DefaultCardSprite/Label2
 @onready var c_cost_label: Label = $SubViewport/DefaultCardSprite/Label3
 @onready var pe_cost_label: Label = $SubViewport/DefaultCardSprite/Label4
-
+@onready var sprite=$SubViewport/DefaultCardSprite
 #@onready var image: TextureRect = %CardImage
 
 func _update_display() -> void:

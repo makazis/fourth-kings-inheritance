@@ -5,5 +5,6 @@ func run():
 	pass
 func process():
 	run()
+	
 	if next_effect!=null:
 		next_effect.process()

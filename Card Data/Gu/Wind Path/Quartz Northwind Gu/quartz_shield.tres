@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="Gu_Move" format=3 uid="uid://dkkoewv582unq"]
+
+[ext_resource type="Script" uid="uid://bp3qpdpnu4oiy" path="res://Card Data/Card Tags/card_tag.gd" id="1_j6d2h"]
+[ext_resource type="Script" uid="uid://c7xhxk6bgq13p" path="res://Card Data/Gu/gu_move.gd" id="2_ch2gs"]
+[ext_resource type="Script" uid="uid://duopmimnkn4f0" path="res://Card Data/Card Tags/unplayable.gd" id="2_lqsrp"]
+[ext_resource type="Script" uid="uid://udmx0spixt2u" path="res://Effect Building/Combat/Apply Block Static.gd" id="3_1c4ik"]
+[ext_resource type="Script" uid="uid://c32iuucts26g7" path="res://Card Data/Card Tags/NotInPool.gd" id="3_2omp2"]
+[ext_resource type="Resource" uid="uid://rjx7xw0uqqev" path="res://Card Data/Gu/Wind Path/Quartz Northwind Gu/quartz_northwind_gu.tres" id="5_lqsrp"]
+
+[sub_resource type="Resource" id="Resource_am71m"]
+script = ExtResource("2_lqsrp")
+metadata/_custom_type_script = "uid://duopmimnkn4f0"
+
+[sub_resource type="Resource" id="Resource_23ud6"]
+script = ExtResource("3_2omp2")
+metadata/_custom_type_script = "uid://c32iuucts26g7"
+
+[sub_resource type="Resource" id="Resource_70658"]
+script = ExtResource("3_1c4ik")
+target = "Caster"
+block = 5
+metadata/_custom_type_script = "uid://udmx0spixt2u"
+
+[resource]
+script = ExtResource("2_ch2gs")
+parent_gu = ExtResource("5_lqsrp")
+pe_cost = 0
+c_cost = 0
+card_name = "Quartz Shield"
+card_description = "End of turn: Gain 5 block"
+effect = SubResource("Resource_70658")
+card_tags = Array[ExtResource("1_j6d2h")]([SubResource("Resource_am71m"), SubResource("Resource_23ud6")])
+front_layout_name = &"unplayable"
+metadata/_custom_type_script = "uid://c7xhxk6bgq13p"

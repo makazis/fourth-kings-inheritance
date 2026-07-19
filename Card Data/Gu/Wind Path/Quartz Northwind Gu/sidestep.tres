@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="Gu_Move" format=3 uid="uid://b4pi3ovfh02uo"]
+
+[ext_resource type="Script" uid="uid://bp3qpdpnu4oiy" path="res://Card Data/Card Tags/card_tag.gd" id="1_2p1w4"]
+[ext_resource type="Script" uid="uid://c7xhxk6bgq13p" path="res://Card Data/Gu/gu_move.gd" id="1_kemsb"]
+[ext_resource type="Resource" uid="uid://rjx7xw0uqqev" path="res://Card Data/Gu/Wind Path/Quartz Northwind Gu/quartz_northwind_gu.tres" id="1_wmco7"]
+[ext_resource type="Script" uid="uid://udmx0spixt2u" path="res://Effect Building/Combat/Apply Block Static.gd" id="2_6fvqp"]
+[ext_resource type="Script" uid="uid://0okdd0vdqmcv" path="res://Card Data/Card Tags/EXHAUST.gd" id="2_qjd3w"]
+[ext_resource type="Script" uid="uid://bv3xej4wc1ski" path="res://Effect Building/Combat/DrawCardEffect.gd" id="2_vb5ol"]
+
+[sub_resource type="Resource" id="Resource_13u62"]
+script = ExtResource("2_qjd3w")
+metadata/_custom_type_script = "uid://0okdd0vdqmcv"
+
+[sub_resource type="Resource" id="Resource_io8ta"]
+script = ExtResource("2_6fvqp")
+target = "Caster"
+block = 6
+metadata/_custom_type_script = "uid://udmx0spixt2u"
+
+[sub_resource type="Resource" id="Resource_2omp2"]
+script = ExtResource("2_vb5ol")
+next_effect = SubResource("Resource_io8ta")
+metadata/_custom_type_script = "uid://bv3xej4wc1ski"
+
+[resource]
+script = ExtResource("1_kemsb")
+parent_gu = ExtResource("1_wmco7")
+c_cost = 0
+card_name = "Sidestep"
+card_description = "Draw 1 card
+Gain 6 block
+Exhaust"
+effect = SubResource("Resource_2omp2")
+card_tags = Array[ExtResource("1_2p1w4")]([SubResource("Resource_13u62")])
+metadata/_custom_type_script = "uid://c7xhxk6bgq13p"

@@ -7,7 +7,9 @@
 resource_local_to_scene = true
 script = ExtResource("1_ep7wq")
 name = "Fang Yuan"
+display_size = 2
 hp = 70
 image = ExtResource("1_bjue6")
 team = "Friendly"
+main_character = true
 metadata/_custom_type_script = "uid://cs1e2lwpafbvf"

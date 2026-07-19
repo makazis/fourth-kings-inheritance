@@ -1,7 +1,15 @@
 {
+	"res://Card Data/Card Tags/unplayable.tscn": {
+		"enabled": true,
+		"last_modified": 1784019484.0,
+		"layout_id": "unplayable",
+		"tags": [
+			"unplayable"
+		]
+	},
 	"res://Card Data/move.tscn": {
 		"enabled": true,
-		"last_modified": 1781716112.0,
+		"last_modified": 1784005628.0,
 		"layout_id": "Move",
 		"tags": [
 			"playable"

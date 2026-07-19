@@ -67,6 +67,9 @@ var _pending_layout_switch: bool = false
 
 var playable=true
 
+var card_tags:Array[Card_Tag]=[]
+var card_tag_ids:Array[String]=[]
+
 ## If true, disables drag function.
 @export var undraggable: bool = false
 
@@ -118,14 +121,39 @@ func _validate_property(property: Dictionary) -> void:
 		property.hint = PROPERTY_HINT_ENUM
 		property.hint_string = options
 
+@onready var RIPPLE_SHADER=preload("res://Assets/Shaders/unplayable.gdshader")
+var is_unplayable=false
 func _init(card_resource: CardResource = null) -> void:
 	if Engine.is_editor_hint(): return
 	name = "card_" + str(CG.card_index)
 	CG.card_index += 1
 	if card_resource:
 		card_data = card_resource
+		for tag in card_data.card_tags:
+			card_tag_ids.append(tag.adds_tag)
+			card_tags.append(tag)
+			if tag.adds_tag=="Unplayable":
+				is_unplayable=true
+		
 
+			#print(typeof(tag))
 
+func play():
+	
+	var old_position=position
+	rotation=0
+	var tween=create_tween()
+	tween.tween_property(self,"global_position",Vector2(1665,0),0.05).set_ease(Tween.EASE_IN)
+	tween.tween_property(self,"scale",Vector2(2,2),0.05).set_ease(Tween.EASE_IN)
+	await tween.finished
+	await get_tree().create_timer(0.2).timeout
+	await card_data.effect.process() #Trust the process
+	tween=create_tween()
+	tween.tween_property(self,"scale",Vector2(1,1),0.07)
+	await tween.finished
+	await card_data.is_played()
+	EffectContext.roles["Last Played Card"]=self
+	
 func _enter_tree() -> void:
 	if Engine.is_editor_hint() and is_node_ready() and not _layout:
 		_editor_setup_layout()
@@ -157,8 +185,8 @@ func _ready() -> void:
 	set_card_size()
 	set_process(false)
 	_card_ready()
-
-
+	
+			
 #region Editor
 
 ## Editor-only: sets up the card with a static layout preview.
@@ -544,7 +572,13 @@ func _setup_layout(no_animations: bool = false) -> void:
 	if _pending_layout_switch:
 		_pending_layout_switch = false
 		_setup_layout()
-
+	if is_unplayable:
+		if is_front_face:
+			var sprite=get_layout().sprite
+			sprite.material = ShaderMaterial.new()
+			sprite.material.shader = RIPPLE_SHADER
+			for child in sprite.get_children():
+				child.material=sprite.material
 
 ## Sets the layout of either the front or back face.
 func set_layout(new_layout_name: String, is_front: bool = true) -> void:

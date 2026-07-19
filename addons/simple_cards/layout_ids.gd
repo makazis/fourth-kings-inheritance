@@ -6,6 +6,7 @@ class_name LayoutID
 const MOVE: StringName = &"Move"
 const DEFAULT: StringName = &"default"
 const DEFAULT_BACK: StringName = &"default_back"
+const UNPLAYABLE: StringName = &"unplayable"
 
 
 ## Returns all available layout IDs
@@ -13,7 +14,8 @@ static func get_all() -> Array[StringName]:
 	return [
 		MOVE,
 		DEFAULT,
-		DEFAULT_BACK
+		DEFAULT_BACK,
+		UNPLAYABLE
 	]
 
 

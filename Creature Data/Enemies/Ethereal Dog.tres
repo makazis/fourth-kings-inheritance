@@ -9,11 +9,13 @@
 [sub_resource type="Resource" id="Resource_6mk85"]
 script = ExtResource("2_jnkbd")
 type = "Attack"
+status_type = "Weakness"
 metadata/_custom_type_script = "uid://cxk8nxq7mevbi"
 
 [sub_resource type="Resource" id="Resource_jnkbd"]
 script = ExtResource("2_jnkbd")
 type = "Block"
+status_type = "Weakness"
 metadata/_custom_type_script = "uid://cxk8nxq7mevbi"
 
 [sub_resource type="Resource" id="Resource_1ppm5"]
@@ -27,6 +29,7 @@ script = ExtResource("2_jnkbd")
 type = "Attack"
 amount = 7
 times = 2
+status_type = "Weakness"
 metadata/_custom_type_script = "uid://cxk8nxq7mevbi"
 
 [sub_resource type="Resource" id="Resource_p1l1x"]
@@ -35,10 +38,22 @@ actions = Array[ExtResource("2_jnkbd")]([SubResource("Resource_m667q")])
 name = "Just deal damage bro"
 metadata/_custom_type_script = "uid://b1220yr12wl0u"
 
+[sub_resource type="Resource" id="Resource_ihyaa"]
+script = ExtResource("2_jnkbd")
+type = "Buff"
+amount = 2
+metadata/_custom_type_script = "uid://cxk8nxq7mevbi"
+
+[sub_resource type="Resource" id="Resource_xcbfb"]
+script = ExtResource("1_6mk85")
+actions = Array[ExtResource("2_jnkbd")]([SubResource("Resource_ihyaa")])
+name = "Strength"
+metadata/_custom_type_script = "uid://b1220yr12wl0u"
+
 [sub_resource type="Resource" id="Resource_o2hmy"]
 script = ExtResource("1_o2hmy")
-PatternType = "Cycle"
-attacks = Array[ExtResource("1_6mk85")]([SubResource("Resource_1ppm5"), SubResource("Resource_p1l1x")])
+PatternType = "Random+"
+attacks = Array[ExtResource("1_6mk85")]([SubResource("Resource_1ppm5"), SubResource("Resource_p1l1x"), SubResource("Resource_xcbfb")])
 metadata/_custom_type_script = "uid://crwrqd6c7y8wu"
 
 [resource]

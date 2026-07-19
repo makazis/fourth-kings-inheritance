@@ -3,16 +3,40 @@
 [ext_resource type="Script" uid="uid://wnvlke0vo18j" path="res://Non-Combat/root.gd" id="1_igkdj"]
 [ext_resource type="FontFile" uid="uid://ds1saal6ugufw" path="res://Assets/Excalifont-Regular.woff2" id="2_hjd13"]
 [ext_resource type="PackedScene" uid="uid://wtjqtvkrv78y" path="res://Combat/root.tscn" id="3_hjd13"]
+[ext_resource type="PackedScene" uid="uid://c0tru4mouci7u" path="res://Non-Combat/post_combat_rewards.tscn" id="10_5htkc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
 font = ExtResource("2_hjd13")
 font_size = 32
 
+[sub_resource type="LabelSettings" id="LabelSettings_0pbps"]
+resource_local_to_scene = true
+font = ExtResource("2_hjd13")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_r07rg"]
+resource_local_to_scene = true
+font = ExtResource("2_hjd13")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_yafp7"]
+resource_local_to_scene = true
+font = ExtResource("2_hjd13")
+font_size = 40
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5asa"]
+resource_local_to_scene = true
+size = Vector2(1232, 1241)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fuvhg"]
+resource_local_to_scene = true
+size = Vector2(1232, 956)
+
 [node name="Root" type="Node2D" unique_id=1285266550]
 script = ExtResource("1_igkdj")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2069670562]
-zoom = Vector2(0.5, 0.5)
+texture_filter = 2
 
 [node name="Panel" type="Panel" parent="." unique_id=1805718938]
 offset_left = -1280.0
@@ -36,7 +60,35 @@ offset_right = 1043.0
 offset_bottom = -222.0
 text = "Play Battle"
 
-[node name="Root" parent="." unique_id=1328499140 instance=ExtResource("3_hjd13")]
+[node name="Screens" type="Node2D" parent="." unique_id=2135864765]
+
+[node name="Root" parent="Screens" unique_id=1328499140 instance=ExtResource("3_hjd13")]
 position = Vector2(1280, -630)
 
+[node name="MaxConcentration" parent="Screens/Root/Energy/Conc" parent_id_path=PackedInt32Array(1328499140, 447967751) index="0" unique_id=484301506]
+label_settings = SubResource("LabelSettings_0pbps")
+
+[node name="Concentration" parent="Screens/Root/Energy/Conc" parent_id_path=PackedInt32Array(1328499140, 447967751) index="1" unique_id=1160746985]
+label_settings = SubResource("LabelSettings_0pbps")
+
+[node name="MaxConcentration" parent="Screens/Root/Energy/Essence" parent_id_path=PackedInt32Array(1328499140, 2109257457) index="0" unique_id=364109030]
+label_settings = SubResource("LabelSettings_r07rg")
+
+[node name="Concentration" parent="Screens/Root/Energy/Essence" parent_id_path=PackedInt32Array(1328499140, 2109257457) index="1" unique_id=1799220836]
+label_settings = SubResource("LabelSettings_yafp7")
+
+[node name="CollisionShape2D" parent="Screens/Root/DragArea4" parent_id_path=PackedInt32Array(1328499140, 1743876184) index="0" unique_id=1810447271]
+shape = SubResource("RectangleShape2D_u5asa")
+
+[node name="CollisionShape2D" parent="Screens/Root/DragArea3" parent_id_path=PackedInt32Array(1328499140, 220950517) index="0" unique_id=30001419]
+shape = SubResource("RectangleShape2D_fuvhg")
+
+[node name="PostCombatRewards" parent="Screens" unique_id=130116637 instance=ExtResource("10_5htkc")]
+position = Vector2(3840, -630)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=10343137]
+position = Vector2(1665, 0)
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+
+[editable path="Screens/Root"]

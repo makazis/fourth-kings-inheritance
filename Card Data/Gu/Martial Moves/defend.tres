@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="Gu_Move" format=3 uid="uid://d4nhhtayminlq"]
 
 [ext_resource type="Script" uid="uid://udmx0spixt2u" path="res://Effect Building/Combat/Apply Block Static.gd" id="1_h5asx"]
+[ext_resource type="Script" uid="uid://bp3qpdpnu4oiy" path="res://Card Data/Card Tags/card_tag.gd" id="1_ns74q"]
 [ext_resource type="Script" uid="uid://c7xhxk6bgq13p" path="res://Card Data/Gu/gu_move.gd" id="1_ussgj"]
 [ext_resource type="Script" uid="uid://co0nojkhbeoum" path="res://Effect Building/Target_Handling/targetCriteria.gd" id="3_3mf0r"]
 
 [sub_resource type="Resource" id="Resource_1lner"]
 script = ExtResource("1_h5asx")
-target = "Target"
 block = 5
 metadata/_custom_type_script = "uid://udmx0spixt2u"
 

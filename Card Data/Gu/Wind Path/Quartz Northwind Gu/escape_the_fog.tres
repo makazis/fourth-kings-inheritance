@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Gu_Move" format=3 uid="uid://btx77a6ge1sal"]
+
+[ext_resource type="Script" uid="uid://bp3qpdpnu4oiy" path="res://Card Data/Card Tags/card_tag.gd" id="1_4wteq"]
+[ext_resource type="Resource" uid="uid://diueilphk0ele" path="res://Card Data/Gu/Wind Path/Quartz Northwind Gu/fog.tres" id="2_ts8lb"]
+[ext_resource type="Script" uid="uid://bc517nkfa4ci3" path="res://Effect Building/Combat/Create_Card.gd" id="3_jsrgw"]
+[ext_resource type="Script" uid="uid://bv3xej4wc1ski" path="res://Effect Building/Combat/DrawCardEffect.gd" id="4_pttxe"]
+[ext_resource type="Resource" uid="uid://rjx7xw0uqqev" path="res://Card Data/Gu/Wind Path/Quartz Northwind Gu/quartz_northwind_gu.tres" id="5_7pwig"]
+[ext_resource type="Script" uid="uid://c7xhxk6bgq13p" path="res://Card Data/Gu/gu_move.gd" id="6_80mo7"]
+
+[sub_resource type="Resource" id="Resource_jm2md"]
+script = ExtResource("3_jsrgw")
+created_card_data = ExtResource("2_ts8lb")
+place_where = "Discard Pile"
+metadata/_custom_type_script = "uid://bc517nkfa4ci3"
+
+[sub_resource type="Resource" id="Resource_aqcl5"]
+script = ExtResource("4_pttxe")
+cards_drawn = 2
+next_effect = SubResource("Resource_jm2md")
+metadata/_custom_type_script = "uid://bv3xej4wc1ski"
+
+[resource]
+script = ExtResource("6_80mo7")
+parent_gu = ExtResource("5_7pwig")
+pe_cost = 0
+c_cost = 0
+card_name = "Escape the Fog"
+card_description = "draw 2 cards
+stash an unplayable fog"
+effect = SubResource("Resource_aqcl5")
+metadata/_custom_type_script = "uid://c7xhxk6bgq13p"

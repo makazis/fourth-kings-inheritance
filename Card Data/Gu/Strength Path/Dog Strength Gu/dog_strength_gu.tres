@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="Gu_card" format=3 uid="uid://ceg7jdfqr43tm"]
+
+[ext_resource type="Script" uid="uid://cdrti7htfmhk5" path="res://Card Data/Gu/gu_worm.gd" id="1_chm4s"]
+[ext_resource type="Resource" uid="uid://cakmtuvaublmn" path="res://Creature Data/Friends/Beast Phantoms/dog_phantom.tres" id="1_ln4bh"]
+[ext_resource type="Script" uid="uid://f4255sjwoq8y" path="res://Effect Building/Combat/Summon Creature.gd" id="2_fyo58"]
+[ext_resource type="Script" uid="uid://dwpgb16legr4l" path="res://Effect Building/Logic Oriented/Variables/CheckVariableEffect.gd" id="3_tt5r3"]
+[ext_resource type="Script" uid="uid://clpxwpujwvv1x" path="res://Effect Building/Effect.gd" id="4_fyo58"]
+[ext_resource type="Script" uid="uid://bj00o1vp73xhm" path="res://Effect Building/Logic Oriented/Variables/ModiftVariableEffect.gd" id="4_wbl31"]
+
+[sub_resource type="Resource" id="Resource_muryh"]
+script = ExtResource("2_fyo58")
+creature_data = ExtResource("1_ln4bh")
+metadata/_custom_type_script = "uid://f4255sjwoq8y"
+
+[sub_resource type="Resource" id="Resource_ihyaa"]
+script = ExtResource("3_tt5r3")
+variable_name = "DogStrengthGuCardsPlayed"
+second_value = "1"
+execute = SubResource("Resource_muryh")
+metadata/_custom_type_script = "uid://dwpgb16legr4l"
+
+[sub_resource type="Resource" id="Resource_p1l1x"]
+script = ExtResource("4_wbl31")
+variable_name = "DogStrengthGuCardsPlayed"
+second_value = "1"
+next_effect = SubResource("Resource_ihyaa")
+metadata/_custom_type_script = "uid://bj00o1vp73xhm"
+
+[resource]
+script = ExtResource("1_chm4s")
+gu_name = "Dog Strength Gu"
+effect_on_gu_move_used = SubResource("Resource_p1l1x")
+combat_description = "The first time you play a Dog Strength Gu move, summon a helpful dog phantom that persists. "
+front_layout_name = &"Move"

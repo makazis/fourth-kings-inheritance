@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bcx7obwqcf8p7"]
+
+[ext_resource type="Script" uid="uid://duefkq0pxq6mn" path="res://Non-Combat/singular_reward_post_combat.gd" id="1_fh3aj"]
+[ext_resource type="FontFile" uid="uid://ds1saal6ugufw" path="res://Assets/Excalifont-Regular.woff2" id="1_s5iou"]
+[ext_resource type="Texture2D" uid="uid://cyv0xyi06nv6u" path="res://Assets/Icons/GuIcon.png" id="3_ht4bm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font = ExtResource("1_s5iou")
+font_size = 80
+font_color = Color(0.81453794, 0.9560942, 0.9536597, 1)
+outline_size = 2
+outline_color = Color(0.32860208, 0.51306367, 0.7538041, 1)
+
+[node name="SRPC" type="Panel" unique_id=1653440927]
+custom_maximum_size = Vector2(1390, 122)
+offset_right = 1390.0
+offset_bottom = 122.0
+size_flags_vertical = 2
+script = ExtResource("1_fh3aj")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=424175595]
+layout_mode = 0
+offset_right = 1390.0
+offset_bottom = 122.0
+color = Color(0.45490196, 0.6156863, 0.7607843, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1728798778]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 12.0
+offset_right = 1376.0
+offset_bottom = 111.0
+text = "Gu Worm"
+label_settings = SubResource("LabelSettings_g4v7s")
+vertical_alignment = 1
+
+[node name="Gu Worm Icon" type="Sprite2D" parent="." unique_id=1377694300]
+position = Vector2(140, 60.000004)
+scale = Vector2(0.10066897, 0.07073676)
+texture = ExtResource("3_ht4bm")
+
+[node name="Button" type="Button" parent="." unique_id=1703361930]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1389.0
+offset_bottom = 124.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

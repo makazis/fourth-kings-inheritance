@@ -1,41 +1,79 @@
-[gd_scene load_steps=3 format=3 uid="uid://dotok77073p27"]
+[gd_scene format=3 uid="uid://dotok77073p27"]
 
-[ext_resource type="Script" uid="uid://dm115oleoggyt" path="res://addons/simple_cards/card/card_layout/card_layout.gd" id="1_0a68r"]
+[ext_resource type="Script" uid="uid://car0pw7cwafhp" path="res://addons/simple_cards/card/card_layout/default_card_layout.gd" id="1_13u62"]
+[ext_resource type="Texture2D" uid="uid://ddaquesfnhgab" path="res://Assets/CardBase.png" id="2_i3mkg"]
+[ext_resource type="FontFile" uid="uid://ds1saal6ugufw" path="res://Assets/Excalifont-Regular.woff2" id="3_6gbdn"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0a68r"]
-bg_color = Color(0, 0.72156864, 0.3019608, 0.4862745)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.06594133, 0.29034972, 1.4439226e-07, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-corner_detail = 16
+[sub_resource type="LabelSettings" id="LabelSettings_dbv13"]
+font = ExtResource("3_6gbdn")
+font_size = 50
+outline_size = 1
+outline_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
 
-[node name="CardLayout" type="SubViewportContainer"]
+[node name="CardLayout" type="SubViewportContainer" unique_id=1099597718]
 offset_right = 80.0
 offset_bottom = 112.0
-script = ExtResource("1_0a68r")
+script = ExtResource("1_13u62")
+card_size = Vector2i(240, 336)
 metadata/_custom_type_script = "uid://dm115oleoggyt"
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=452654166]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(80, 112)
+size = Vector2i(240, 336)
 render_target_update_mode = 4
 
-[node name="PanelContainer" type="PanelContainer" parent="SubViewport"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0a68r")
+[node name="DefaultCardSprite" type="Sprite2D" parent="SubViewport" unique_id=1788621027]
+position = Vector2(117.150475, 157)
+scale = Vector2(0.34942845, 0.2971761)
+texture = ExtResource("2_i3mkg")
 
-[node name="Label" type="Label" parent="SubViewport/PanelContainer"]
-layout_mode = 2
-text = "Front"
+[node name="Label4" type="Label" parent="SubViewport/DefaultCardSprite" unique_id=1328155459]
+use_parent_material = true
+offset_left = -335.26315
+offset_top = -360.0559
+offset_right = -160.30011
+offset_bottom = -158.05597
+text = "1"
+label_settings = SubResource("LabelSettings_dbv13")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="SubViewport/DefaultCardSprite" unique_id=741763474]
+use_parent_material = true
+offset_left = -278.0268
+offset_top = -20.190033
+offset_right = 297.1983
+offset_bottom = 84.12521
+text = "Strike"
+label_settings = SubResource("LabelSettings_dbv13")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="SubViewport/DefaultCardSprite" unique_id=1561490122]
+use_parent_material = true
+offset_left = -215.06685
+offset_top = 107.68025
+offset_right = 166.98567
+offset_bottom = 439.68024
+scale = Vector2(1.2, 1.2)
+text = "first line
+second line
+deal 6 damage
+fourth line
+fifth line"
+label_settings = SubResource("LabelSettings_dbv13")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="SubViewport/DefaultCardSprite" unique_id=986332745]
+use_parent_material = true
+offset_left = -318.09222
+offset_top = -491.2912
+offset_right = -154.96869
+offset_bottom = -323.04077
+text = "0"
+label_settings = SubResource("LabelSettings_dbv13")
+horizontal_alignment = 1
+vertical_alignment = 1
